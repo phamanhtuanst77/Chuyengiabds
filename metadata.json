@@ -1,0 +1,7 @@
+{
+  "name": "EstateNexus: Super Agent Intelligence",
+  "description": "A high-end real estate strategic advisor powered by Gemini 3 Pro. Provides expert analysis on market trends, legal changes (Land Law 2024), and expert negotiation strategies for investors and buyers.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
