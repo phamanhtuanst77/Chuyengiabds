@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { Message, Sender } from "../types";
 
@@ -22,12 +21,16 @@ export class RealEstateService {
   private ai: GoogleGenAI;
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    // THAY ĐỔI 1: Để chạy ngay lập tức, hãy dán trực tiếp API Key vào dấu ngoặc kép dưới đây
+    // Sau khi chạy ok, bạn có thể đổi lại thành process.env.API_KEY sau.
+    const myApiKey = "AIzaSyBoXoD5BIeeWf8-9fQ1CyDT5n3ZD-mln9k"; 
+    this.ai = new GoogleGenAI({ apiKey: myApiKey });
   }
 
   async getStrategicAdvice(userPrompt: string, history: Message[]): Promise<Partial<Message>> {
     try {
-      const model = 'gemini-3-pro-preview';
+      // THAY ĐỔI 2: Đổi tên model từ 'gemini-3-pro-preview' thành 'gemini-1.5-flash'
+      const model = 'gemini-1.5-flash';
       
       const chatHistory = history.map(msg => ({
         role: msg.sender === Sender.USER ? 'user' : 'model',
